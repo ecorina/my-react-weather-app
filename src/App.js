@@ -1,12 +1,12 @@
 import React from "react";
-import { isNonNullChain } from "typescript";
+
 import Weather from "./Weather";
 import "./App.css";
 
 export default function App() {
   return (
     <div className="App">
-      <div className="container">
+      <div className="Container">
         <Weather />
 
         <footer>

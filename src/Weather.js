@@ -2,7 +2,7 @@ import React from "react";
 import "./Weather.css";
 export default function Weather() {
   return (
-    <div className="Weather">
+    <div className="weather">
       <form>
         <div className="row">
           <div className="col-9">
@@ -10,10 +10,15 @@ export default function Weather() {
               type="search"
               placeholder="Enter City..."
               className="form-control"
+              autoFocus="on"
             />
           </div>
           <div className="col-3">
-            <input type="submit" value="Search" className="btn btn-primary" />
+            <input
+              type="submit"
+              value="Search"
+              className="btn btn-primary w-100"
+            />
           </div>
         </div>
       </form>
@@ -22,16 +27,21 @@ export default function Weather() {
         <li>Wednesday 14:53</li>
         <li>Mostrly Cloudy</li>
       </ul>
-      <div className="row">
+      <div className="row mt-3">
         <div className="col-6">
-          <img
-            alt="Senin"
-            src="//ssl.gstatic.com/onebox/weather/64/sunny.png"
-          />
-          <span className="Temperature">6º|C </span>
+          <div className="clearfix">
+            <img
+              src="//ssl.gstatic.com/onebox/weather/64/sunny.png"
+              alt="Senin"
+              className="float-left"
+            />
+            <span className="floate-left">
+              <span className="temp">6</span> <span className="unit">ºC</span>
+            </span>
+          </div>
         </div>
         <div className="col-6">
-          <ul>
+          <ul className="details">
             <li>Precipitation:15%</li>
             <li>Humidity:72%</li>
             <li>Wind:13km/h</li>

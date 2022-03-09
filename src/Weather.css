@@ -1,4 +1,46 @@
-.Weather {
+.weather {
   border: 1px solid #dadde1;
   border-radius: 15px;
+  padding: 16px;
+}
+
+.weatger form {
+  margin-bottom: 20px;
+}
+
+.weather h1 {
+  display: block;
+
+  font-weight: 800;
+  font-size: 45px;
+  margin: 20px 0 0 0;
+}
+.weather ul {
+  margin: 0;
+  padding: 0;
+}
+
+.weather li {
+  font-size: 15px;
+  font-weight: 600;
+  list-style: none;
+}
+.weather img {
+  height: 65px;
+  width: 65px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.weather .temp {
+  font-weight: bold;
+  font-size: 65px;
+  position: relative;
+  top: 15px;
+}
+.weather .unit {
+  font-size: 18px;
+  font-weight: 300;
+  position: relative;
+  top: -18px;
+  margin-left: 5px;
 }
