@@ -1,14 +1,14 @@
 import React from "react";
 import { isNonNullChain } from "typescript";
-
+import Weather from "./Weather";
 import "./App.css";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <input className="form-control" type="text" placeholder="City..." />
-        Weather App
+        <Weather />
+
         <footer>
           This project was coded by Corina S and is {""}
           <a
