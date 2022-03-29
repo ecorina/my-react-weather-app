@@ -12,7 +12,7 @@ export default function App() {
         <footer>
           This project was coded by Corina S and is {""}
           <a
-            href="https://github.com/ecorina/my-react-weather"
+            href="https://github.com/ecorina/my-react-weather-app"
             target="_blank"
             rel="noreferrer"
           >
