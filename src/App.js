@@ -10,21 +10,19 @@ export default function App() {
 
         <footer>
           This project was coded by{" "}
-          <a href="" target="_blank">
+          <a href="https://github.com/ecorina" target="_blank" rel="noreferrer">
             Corina Serban
           </a>{" "}
           and is{" "}
           <a
             href="https://github.com/ecorina/my-react-weather-app"
             target="_blank"
+            rel="noreferrer"
           >
             open-sourced on GitHub
           </a>{" "}
           and{" "}
-          <a
-            href="https://app.netlify.com/sites/oncloud-app/overview"
-            target="_blank"
-          >
+          <a href="https://app.netlify.com" target="_blank" rel="noreferrer">
             hosted on Netlify
           </a>
         </footer>
