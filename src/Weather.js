@@ -1,44 +1,51 @@
 import React, { useState } from "react";
-
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
+
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
+
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
-      iconUrl: `https://ssl.gstatic.com/onebox/weather/64/sunny.png`,
+      icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
       city: response.data.name,
     });
   }
 
-  function search() {}
-
   function handleSubmit(event) {
     event.preventDefault();
-    search(city);
+    search();
   }
 
   function handleCityChange(event) {
     setCity(event.target.value);
   }
 
+  function search() {
+    const apiKey = "5f31ea08bc4a98ce08ab6fb52341652d";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   if (weatherData.ready) {
     return (
-      <div className="weather">
+      <div className="Weather">
         <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-9">
               <input
                 type="search"
-                placeholder="Enter City..."
+                placeholder="Enter a city.."
                 className="form-control"
                 autoFocus="on"
                 onChange={handleCityChange}
@@ -54,13 +61,11 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
-    const apiKey = "6905ff0b38fa30ab82c89c7372272fbd";
-
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaulCity}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-    return <div className="lds-hourglass"></div>;
+    search();
+    return "Loading...";
   }
 }
